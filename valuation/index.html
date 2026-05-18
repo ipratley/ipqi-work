@@ -1,1 +1,78 @@
+# DEPLOYMENT — ipqi.work/valuation
 
+Two parts. Tool first (5 mins), then Worker proxy (10 mins).
+Total: ~15-20 mins click time.
+
+---
+
+## PART 1 — DEPLOY THE TOOL (5 mins)
+
+You're adding one folder + one file to your `ipratley/ipqi-work` GitHub repo.
+Cloudflare auto-deploys when GitHub updates.
+
+### Steps
+
+1. Go to https://github.com/ipratley/ipqi-work
+2. Click **"Add file"** → **"Create new file"**
+3. In the filename box, type: `valuation/index.html`
+   (The slash creates the folder)
+4. Paste the entire contents of the `index.html` file I delivered
+5. Scroll down, commit message: "Add valuation tool"
+6. Click **"Commit changes"**
+
+Cloudflare will auto-deploy in ~30-60 seconds.
+
+**Check:** Visit `https://ipqi.work/valuation` — you should see the tool.
+The form will load and look correct, but clicking "Request the Valuation"
+will fail until Part 2 is done. That's expected.
+
+---
+
+## PART 2 — DEPLOY THE WORKER (10 mins)
+
+The Worker holds your Anthropic API key and proxies API calls.
+This keeps the key out of the browser code.
+
+### Steps
+
+1. Cloudflare dashboard → left sidebar → **"Compute"** → **"Workers & Pages"**
+2. Click **"Create"** → **"Start with Hello World"** → **"Get started"**
+3. Worker name: `valuation-proxy`
+4. Click **"Deploy"** (creates a placeholder Worker)
+5. Click **"Edit code"**
+6. Delete the placeholder code
+7. Paste the entire contents of `worker.js`
+8. Click **"Deploy"** (top right)
+
+### Add the API key as a secret
+
+1. From the Worker page, click **"Settings"** tab
+2. Scroll to **"Variables and Secrets"**
+3. Click **"+ Add"**
+4. Type: **Secret**
+5. Variable name: `ANTHROPIC_API_KEY`
+6. Value: paste your Anthropic API key
+7. Click **"Deploy"**
+
+### Route it to ipqi.work/api/valuate
+
+1. From the Worker page, click **"Settings"** tab
+2. Scroll to **"Domains & Routes"** → **"Add"**
+3. Choose **"Route"**
+4. Zone: select **ipqi.work**
+5. Route: `ipqi.work/api/valuate`
+6. Click **"Add route"**
+
+---
+
+## TEST
+
+1. Visit `https://ipqi.work/valuation`
+2. Fill in any car (e.g. 1973 Porsche 911, 84000 miles, Show-Quality)
+3. Click "Request the Valuation"
+4. Should get a real assessment letter in ~15-30 seconds
+
+If it fails:
+- Check the Worker has the secret set
+- Check the route is `ipqi.work/api/valuate` exactly
+- Check the route is active (green dot in dashboard)
