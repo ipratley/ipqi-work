@@ -3,1084 +3,1260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPQI/work — Business transformation through AI, technology & process</title>
-<meta name="description" content="Discovery-led transformation. Recent work: £1m+ value identified for car auction platform, 80% time reduction for market-entry specialist, FCA audit-ready in 14 days for wealth manager.">
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="IPQI/work — Business transformation">
-<meta property="og:description" content="Technical + business discovery. Fast parallel sprints. Payment when value lands. Recent: £1m+ identified, 80% time reduction, 14-day delivery.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ipqi.work">
-
+<title>Indicative Valuation — Classic &amp; Collectible Cars</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root {
+    --parchment: #f0e8d6;
+    --parchment-deep: #e6dcc4;
+    --ink: #1c1410;
+    --ink-soft: #3a2f28;
+    --ink-faint: #6e5f54;
+    --oxblood: #6b1f1f;
+    --oxblood-deep: #4a1414;
+    --walnut: #2a1d14;
+    --brass: #a8842f;
+    --brass-light: #c9a558;
+    --brass-deep: #806121;
+    --rule: rgba(28, 20, 16, 0.18);
+    --rule-strong: rgba(28, 20, 16, 0.45);
+    --shadow: rgba(28, 20, 16, 0.12);
+  }
 
-:root{
-  --bg:#0a0b0f;
-  --bg-card:#12131a;
-  --border:#1e2030;
-  --border-accent:#2a3050;
-  --text:#e2e4ec;
-  --text-dim:#bcc1d3;
-  --text-bright:#f4f6fa;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-  --accent:#6f9bff;
-  --green:#46e0a8;
-  --amber:#f7bb52;
-  --cyan:#46e3f3;
-  --violet:#bba0ff;
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+  }
 
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --sans:"DM Sans",-apple-system,BlinkMacSystemFont,sans-serif;
-}
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(168, 132, 47, 0.06) 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(107, 31, 31, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 50% 110%, rgba(42, 29, 20, 0.08) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='3' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
 
-html{scroll-behavior:smooth}
+  /* Back link to ipqi.work */
+  .back-bar {
+    position: relative;
+    z-index: 3;
+    padding: 16px 48px 0;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .back-link {
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .back-link:hover { color: var(--oxblood); }
+  .back-link .arrow { display: inline-block; margin-right: 6px; transition: transform 0.2s ease; }
+  .back-link:hover .arrow { transform: translateX(-3px); }
 
-body{
-  font-family:var(--sans);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  overflow-x:hidden;
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
-}
+  .frame {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 48px 80px;
+    position: relative;
+    z-index: 2;
+  }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(74,124,255,0.012) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(74,124,255,0.012) 1px,transparent 1px);
-  background-size:64px 64px;
-  pointer-events:none;
-  z-index:0;
-}
+  /* MASTHEAD */
+  .masthead {
+    border-top: 4px double var(--walnut);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 28px 0 32px;
+    margin-bottom: 48px;
+    text-align: center;
+    position: relative;
+  }
+  .masthead::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background: var(--brass);
+  }
+  .establishment {
+    font-family: 'Crimson Pro', serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  .masthead-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 5.5vw, 58px);
+    line-height: 1;
+    letter-spacing: -0.005em;
+    color: var(--walnut);
+  }
+  .masthead-title em { font-style: italic; color: var(--oxblood); font-weight: 500; }
+  .masthead-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-top: 14px;
+    font-weight: 400;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .masthead-meta {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  .masthead-meta .pip {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--oxblood);
+    border-radius: 50%;
+  }
 
-a{color:var(--accent);text-decoration:none;transition:color .2s}
-a:hover{color:var(--text-bright)}
+  .preamble {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .preamble strong { font-style: normal; font-weight: 600; color: var(--oxblood); }
 
-.container{
-  max-width:920px;
-  margin:0 auto;
-  padding:0 24px;
-  position:relative;
-  z-index:1;
-  width:100%;
-}
+  /* FORM */
+  .form-wrapper {
+    background: rgba(255, 250, 235, 0.45);
+    border: 1px solid var(--rule);
+    padding: 48px 56px 56px;
+    margin-bottom: 64px;
+    position: relative;
+    box-shadow: 0 1px 0 var(--shadow), 0 8px 32px -16px var(--shadow);
+  }
+  .form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(to right, var(--oxblood) 0%, var(--oxblood) 40%, var(--brass) 40%, var(--brass) 60%, var(--walnut) 60%, var(--walnut) 100%);
+  }
+  .section-label {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--brass-deep);
+    margin-bottom: 8px;
+  }
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.05;
+    color: var(--walnut);
+    margin-bottom: 4px;
+  }
+  .section-heading em { font-style: italic; color: var(--oxblood); }
+  .section-byline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-faint);
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
 
-/* ===== Nav ===== */
-nav{padding:24px 0;border-bottom:1px solid var(--border)}
-nav .container{display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
-.logo-text{font-family:var(--mono);font-size:17px;color:var(--text-bright);letter-spacing:3px}
-.logo-text .slash{color:var(--accent);font-weight:500}
-.logo-text .work{color:var(--text-dim);font-weight:300}
+  .reg-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .reg-plate {
+    background: #f7d000;
+    color: #1c1410;
+    border: 2px solid #1c1410;
+    padding: 14px 22px;
+    font-family: 'Crimson Pro', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    width: 220px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .reg-plate::placeholder {
+    color: rgba(28, 20, 16, 0.35);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .reg-help {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+  }
 
-.nav-status{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--mono);font-size:12px;color:var(--text);
-  letter-spacing:1px;text-transform:uppercase;font-weight:500;
-}
-.nav-status::before{
-  content:"";width:7px;height:7px;background:var(--green);border-radius:50%;
-  animation:pulse 2s ease-in-out infinite;
-}
+  .field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 36px;
+    margin-bottom: 36px;
+  }
+  .field { display: flex; flex-direction: column; }
+  .field.span-2 { grid-column: 1 / -1; }
+  label {
+    font-family: 'Crimson Pro', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--walnut);
+    margin-bottom: 8px;
+  }
+  label .required { color: var(--oxblood); margin-left: 2px; }
+  label .optional {
+    font-weight: 400;
+    color: var(--ink-faint);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-left: 8px;
+    font-size: 12px;
+  }
+  input[type="text"], input[type="number"], input[type="email"], input[type="tel"], select, textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--rule-strong);
+    padding: 8px 0 10px;
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    color: var(--ink);
+    transition: border-color 0.25s ease;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  textarea { min-height: 96px; resize: vertical; line-height: 1.55; }
+  input:focus, textarea:focus, select:focus { outline: none; border-bottom-color: var(--oxblood); }
+  input::placeholder, textarea::placeholder { color: var(--ink-faint); opacity: 0.55; font-style: italic; }
 
-@keyframes pulse{
-  0%,100%{opacity:1;box-shadow:0 0 4px var(--green),0 0 10px var(--green)}
-  50%{opacity:.3;box-shadow:0 0 2px var(--green)}
-}
+  /* Condition pills */
+  .condition-set { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .condition-pill { position: relative; cursor: pointer; }
+  .condition-pill input { position: absolute; opacity: 0; pointer-events: none; }
+  .condition-pill .pill-body {
+    border: 1px solid var(--rule-strong);
+    padding: 14px 8px 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+    background: rgba(255, 250, 235, 0.3);
+  }
+  .condition-pill .pill-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--walnut);
+    margin-bottom: 2px;
+  }
+  .condition-pill .pill-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-faint);
+    line-height: 1.3;
+  }
+  .condition-pill input:checked + .pill-body { background: var(--walnut); border-color: var(--walnut); }
+  .condition-pill input:checked + .pill-body .pill-title { color: var(--brass-light); }
+  .condition-pill input:checked + .pill-body .pill-sub { color: var(--parchment); }
+  .condition-pill:hover .pill-body { border-color: var(--oxblood); }
 
-/* ===== Hero ===== */
-.hero{display:flex;align-items:center;padding:56px 0 48px}
-.hero-inner{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;width:100%}
+  /* History checkboxes */
+  .history-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; }
+  .history-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 6px 0;
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  .history-item:hover { color: var(--oxblood); }
+  .history-item input { position: absolute; opacity: 0; pointer-events: none; }
+  .history-item .box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--rule-strong);
+    background: rgba(255, 250, 235, 0.4);
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+  .history-item input:checked + .box { background: var(--oxblood); border-color: var(--oxblood); }
+  .history-item input:checked + .box::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--parchment);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+  }
 
-.we-make{
-  font-family:var(--mono);font-size:13.5px;color:var(--text);
-  letter-spacing:1px;margin-bottom:24px;line-height:1.8;
-}
-.we-make .verb{color:var(--text-bright);font-weight:500}
-.we-make .accent{color:var(--accent);font-weight:500}
+  /* Photo upload */
+  .photo-zone {
+    border: 2px dashed var(--rule-strong);
+    padding: 28px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: rgba(255, 250, 235, 0.3);
+    display: block;
+  }
+  .photo-zone:hover { border-color: var(--oxblood); background: rgba(168, 132, 47, 0.06); }
+  .photo-zone-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--walnut);
+    margin-bottom: 4px;
+  }
+  .photo-zone-title em { font-style: italic; color: var(--oxblood); }
+  .photo-zone-help {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-faint);
+  }
+  .photo-input { display: none; }
+  .photo-thumbs { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; justify-content: center; }
+  .photo-thumb {
+    width: 84px;
+    height: 84px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--walnut);
+    position: relative;
+    box-shadow: 2px 2px 0 var(--brass-light);
+  }
+  .photo-thumb button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 22px;
+    height: 22px;
+    background: var(--oxblood);
+    color: var(--parchment);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    font-family: 'Crimson Pro', serif;
+  }
+  .photo-thumb button:hover { background: var(--oxblood-deep); }
 
-.hero h1{
-  font-size:clamp(28px,4vw,42px);font-weight:300;color:var(--text-bright);
-  line-height:1.16;margin-bottom:24px;letter-spacing:-.5px;max-width:22ch;
-}
-.hero h1 strong{font-weight:600}
-.hero h1 em{font-style:italic;font-weight:400;color:var(--accent)}
+  /* Action row */
+  .action-bar {
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .action-help {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-faint);
+    max-width: 400px;
+  }
+  .btn-primary {
+    background: var(--oxblood);
+    color: var(--parchment);
+    border: none;
+    padding: 18px 38px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 0;
+    position: relative;
+    box-shadow: 4px 4px 0 var(--walnut);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--oxblood-deep);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--walnut);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--walnut);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
-.thesis-line{
-  font-size:15px;color:var(--text);line-height:1.7;
-  margin-bottom:14px;max-width:580px;
-}
-.thesis-line strong{color:var(--text-bright)}
-.thesis-line .durability{
-  color:var(--green);font-weight:500;
-}
+  .error-msg {
+    display: none;
+    background: rgba(107, 31, 31, 0.08);
+    border-left: 3px solid var(--oxblood);
+    padding: 14px 18px;
+    margin-top: 24px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--oxblood-deep);
+  }
+  .error-msg.active { display: block; }
 
-/* Triangulation micro-line (agentic-AI concept) */
-.triangulation{
-  font-family:var(--mono);font-size:12.5px;color:var(--text);
-  letter-spacing:.4px;line-height:1.7;margin-bottom:32px;max-width:580px;
-  padding-left:14px;border-left:2px solid var(--cyan);
-}
-.triangulation strong{color:var(--text-bright);font-weight:500}
-.triangulation .cyan{color:var(--cyan);font-weight:500}
+  /* Loading */
+  .loading-state { display: none; padding: 100px 20px; text-align: center; }
+  .loading-state.active { display: block; }
+  .loading-art {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--walnut);
+    margin-bottom: 14px;
+  }
+  .loading-art em { color: var(--oxblood); }
+  .loading-rule { width: 80px; height: 1px; background: var(--brass); margin: 18px auto; }
+  .loading-stage {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    min-height: 18px;
+  }
 
-/* ===== Outcome strip ===== */
-.outcomes{margin-bottom:32px;max-width:680px}
-.outcome-row{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg-card);
-}
-.outcome{
-  padding:18px 18px;border-right:1px solid var(--border);
-  display:flex;flex-direction:column;gap:7px;
-}
-.outcome:last-child{border-right:none}
-.o-num{
-  font-family:var(--mono);font-size:11px;color:var(--text-dim);
-  letter-spacing:1.5px;
-}
-.o-label{
-  font-size:14.5px;font-weight:600;color:var(--text-bright);
-  letter-spacing:-0.2px;
-}
-.o-desc{
-  font-size:12.5px;color:var(--text);line-height:1.55;
-  font-family:var(--sans);
-}
+  /* ASSESSMENT */
+  .assessment { display: none; margin-top: 80px; animation: rise 0.7s ease; }
+  .assessment.active { display: block; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .letter {
+    background: rgba(255, 250, 235, 0.65);
+    border: 1px solid var(--rule);
+    padding: 64px 72px 72px;
+    position: relative;
+    box-shadow: 0 4px 0 var(--shadow), 0 20px 60px -24px var(--shadow);
+  }
+  .letter::before {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px; right: 16px; bottom: 16px;
+    border: 1px solid rgba(168, 132, 47, 0.25);
+    pointer-events: none;
+  }
+  .letter-head {
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 36px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .letter-head::after {
+    content: '◆';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--brass);
+    font-size: 12px;
+    background: var(--parchment);
+    padding: 0 12px;
+  }
+  .letter-eyebrow {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--brass-deep);
+    margin-bottom: 12px;
+  }
+  .letter-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 1.05;
+    color: var(--walnut);
+    letter-spacing: -0.01em;
+  }
+  .letter-title em { font-style: italic; color: var(--oxblood); }
+  .letter-subject {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
 
-/* ===== Methodology flow ===== */
-.method{margin-bottom:32px;max-width:680px}
-.method-label{
-  font-family:var(--mono);font-size:11.5px;color:var(--accent);
-  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;
-  display:flex;align-items:center;gap:10px;font-weight:500;
-}
-.method-label::before{content:"";width:18px;height:1px;background:var(--accent)}
+  .figure-block {
+    text-align: center;
+    margin: 36px auto 48px;
+    padding: 28px 24px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(168, 132, 47, 0.04) 50%, transparent 100%);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    max-width: 560px;
+  }
+  .figure-label {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--brass-deep);
+    margin-bottom: 14px;
+  }
+  .figure-range {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 48px;
+    color: var(--walnut);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .figure-range .sep {
+    color: var(--brass);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 36px;
+    padding: 0 8px;
+    vertical-align: 4px;
+  }
+  .figure-note {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-faint);
+    margin-top: 12px;
+  }
 
-.method-flow{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
-  border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg-card);
-}
-.step{padding:16px;position:relative;border-right:1px solid var(--border)}
-.step:last-child{border-right:none}
-.step::before{content:"";position:absolute;top:0;left:0;right:0;height:2px}
-.step.s1::before{background:var(--green)}
-.step.s2::before{background:var(--accent)}
-.step.s3::before{background:var(--amber)}
-.step.s4::before{background:var(--violet)}
-.step-num{
-  font-family:var(--mono);font-size:11px;color:var(--text-dim);
-  letter-spacing:1.5px;margin-bottom:5px;display:block;font-weight:500;
-}
-.step-title{font-size:14px;font-weight:500;color:var(--text-bright);margin-bottom:4px;line-height:1.3}
-.step-time{font-family:var(--mono);font-size:11px;letter-spacing:.5px;font-weight:500}
-.step.s1 .step-time{color:var(--green)}
-.step.s2 .step-time{color:var(--accent)}
-.step.s3 .step-time{color:var(--amber)}
-.step.s4 .step-time{color:var(--violet)}
+  .letter-body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .letter-body p { margin-bottom: 22px; }
+  .letter-body p:first-child::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 64px;
+    float: left;
+    line-height: 0.85;
+    margin: 8px 12px 0 0;
+    color: var(--oxblood);
+  }
+  .letter-body strong { font-weight: 600; color: var(--walnut); }
+  .letter-body em { font-style: italic; }
 
-/* Long-term partnership banner */
-.partnership-banner{
-  grid-column:1 / -1;
-  border-top:1px solid var(--border);
-  padding:14px 16px;
-  background:linear-gradient(90deg,rgba(61,219,162,0.05),rgba(94,143,255,0.06) 50%,rgba(179,155,255,0.05));
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  font-family:var(--mono);font-size:11.5px;
-  letter-spacing:2px;text-transform:uppercase;
-  color:var(--text-bright);font-weight:500;
-}
-.partnership-banner::before,.partnership-banner::after{
-  content:"";flex:1;height:1px;
-  background:linear-gradient(90deg,transparent,var(--border-accent) 50%,transparent);
-  max-width:160px;
-}
-.partnership-banner .pb-arrow{color:var(--accent);font-size:14px;letter-spacing:0}
+  .lift-hurt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin: 40px auto;
+    max-width: 720px;
+  }
+  .lh-col h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .lh-col.lift h5 { color: var(--brass-deep); }
+  .lh-col.hurt h5 { color: var(--oxblood); }
+  .lh-col ul { list-style: none; padding: 0; }
+  .lh-col li {
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    padding: 8px 0 8px 22px;
+    border-bottom: 1px dotted var(--rule);
+    position: relative;
+  }
+  .lh-col li:last-child { border-bottom: none; }
+  .lh-col li::before {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+  .lh-col.lift li::before { content: '+'; color: var(--brass-deep); }
+  .lh-col.hurt li::before { content: '−'; color: var(--oxblood); }
 
-/* ===== Logo ===== */
-.hero-canvas-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;padding-top:8px}
-.hero-canvas-label{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:2px;text-transform:uppercase;text-align:center}
+  .signature {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    text-align: right;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sig-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .sig-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--walnut);
+    line-height: 1.2;
+  }
+  .sig-role {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
 
-/* ===== Recent Transformations (NEW) ===== */
-.transformations{
-  border-top:1px solid var(--border);
-  padding:48px 0 56px;
-  background:var(--bg);
-  position:relative;
-  z-index:1;
-}
-.transformations-inner{
-  max-width:920px;
-  margin:0 auto;
-  padding:0 24px;
-}
-.section-label{
-  font-family:var(--mono);font-size:12px;color:var(--accent);
-  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:500;
-}
-.section-h2{
-  font-size:clamp(24px,2.6vw,28px);font-weight:300;color:var(--text-bright);
-  line-height:1.25;margin-bottom:14px;letter-spacing:-.4px;max-width:24ch;
-}
-.section-h2 strong{font-weight:600}
-.section-h2 em{font-style:italic;font-weight:400;color:var(--accent)}
-.section-intro{
-  color:var(--text);font-size:15px;line-height:1.7;
-  margin-bottom:36px;max-width:680px;
-}
-.section-intro strong{color:var(--text-bright)}
+  /* CTA */
+  .cta-card {
+    margin-top: 64px;
+    padding: 48px 56px 52px;
+    background: var(--walnut);
+    color: var(--parchment);
+    position: relative;
+    box-shadow: 0 12px 32px -8px rgba(28, 20, 16, 0.3);
+  }
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--oxblood) 0%, var(--brass) 50%, var(--oxblood) 100%);
+  }
+  .cta-eyebrow {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--brass-light);
+    margin-bottom: 14px;
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    color: var(--parchment);
+  }
+  .cta-title em { font-style: italic; color: var(--brass-light); }
+  .cta-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(240, 232, 214, 0.85);
+    margin-bottom: 28px;
+    max-width: 560px;
+  }
+  .cta-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 14px;
+    align-items: end;
+    max-width: 720px;
+  }
+  .cta-form .field { gap: 6px; }
+  .cta-form label { color: var(--brass-light); font-size: 10px; }
+  .cta-form input {
+    background: transparent;
+    color: var(--parchment);
+    border-bottom-color: rgba(240, 232, 214, 0.35);
+    font-size: 17px;
+  }
+  .cta-form input:focus { border-bottom-color: var(--brass-light); }
+  .cta-form input::placeholder { color: rgba(240, 232, 214, 0.4); }
+  .btn-cta {
+    background: var(--brass);
+    color: var(--walnut);
+    border: none;
+    padding: 14px 26px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 3px 3px 0 var(--brass-deep);
+    height: fit-content;
+  }
+  .btn-cta:hover { background: var(--brass-light); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--brass-deep); }
+  .cta-success {
+    display: none;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--brass-light);
+    padding: 24px 0;
+    border-top: 1px solid rgba(240, 232, 214, 0.2);
+    margin-top: 24px;
+  }
+  .cta-success.active { display: block; }
 
-/* Case study cards */
-.case-grid{
-  display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:36px;
-}
-.case-card{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:28px 30px;
-  position:relative;
-  overflow:hidden;
-}
-.case-card::before{
-  content:"";position:absolute;top:0;left:0;width:4px;height:100%;
-}
-.case-card.c1::before{background:var(--green)}
-.case-card.c2::before{background:var(--accent)}
-.case-card.c3::before{background:var(--cyan)}
+  .footnote {
+    margin-top: 48px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-faint);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-text {
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
 
-.case-header{
-  display:flex;justify-content:space-between;align-items:start;
-  margin-bottom:18px;gap:16px;flex-wrap:wrap;
-}
-.case-title{
-  font-size:18px;font-weight:600;color:var(--text-bright);
-  letter-spacing:-.3px;
-}
-.case-meta{
-  font-family:var(--mono);font-size:11px;color:var(--text-dim);
-  letter-spacing:1px;text-transform:uppercase;
-  white-space:nowrap;
-}
+  @media (max-width: 880px) {
+    .back-bar { padding: 16px 20px 0; }
+    .frame { padding: 24px 20px 60px; }
+    .form-wrapper { padding: 32px 24px 36px; }
+    .field-grid { grid-template-columns: 1fr; gap: 24px; }
+    .condition-set { grid-template-columns: repeat(2, 1fr); }
+    .history-grid { grid-template-columns: 1fr; }
+    .letter { padding: 36px 24px 44px; }
+    .letter-title { font-size: 32px; }
+    .figure-range { font-size: 36px; }
+    .lift-hurt { grid-template-columns: 1fr; gap: 28px; }
+    .cta-card { padding: 32px 24px; }
+    .cta-form { grid-template-columns: 1fr; }
+    .cta-title { font-size: 26px; }
+    .reg-plate { width: 100%; }
+    .reg-help { padding-left: 0; }
+  }
 
-.case-metric{
-  display:inline-block;
-  font-family:var(--mono);
-  font-size:28px;
-  font-weight:600;
-  letter-spacing:-1px;
-  margin-bottom:12px;
-}
-.case-card.c1 .case-metric{color:var(--green)}
-.case-card.c2 .case-metric{color:var(--accent)}
-.case-card.c3 .case-metric{color:var(--cyan)}
-
-.case-content{
-  color:var(--text);
-  font-size:14.5px;
-  line-height:1.65;
-}
-.case-content p{margin-bottom:14px}
-.case-content p:last-child{margin-bottom:0}
-.case-content strong{color:var(--text-bright);font-weight:600}
-.case-content em{font-style:italic;color:var(--text-bright)}
-
-.case-details{
-  margin-top:18px;
-  padding-top:18px;
-  border-top:1px solid var(--border);
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px;
-}
-.detail-item{
-  display:flex;flex-direction:column;gap:4px;
-}
-.detail-label{
-  font-family:var(--mono);
-  font-size:10px;
-  color:var(--text-dim);
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-.detail-value{
-  font-size:14px;
-  color:var(--text-bright);
-  font-weight:500;
-}
-
-/* Anthropic opportunity callout */
-.opportunity-callout{
-  background:linear-gradient(135deg,rgba(61,219,162,0.08),rgba(94,143,255,0.08));
-  border:1px solid var(--border-accent);
-  border-radius:8px;
-  padding:28px 30px;
-  position:relative;
-  overflow:hidden;
-}
-.opportunity-callout::before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg,var(--green),var(--accent),var(--cyan));
-}
-.opp-label{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--accent);
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  font-weight:600;
-  margin-bottom:12px;
-}
-.opp-title{
-  font-size:20px;
-  font-weight:600;
-  color:var(--text-bright);
-  margin-bottom:14px;
-  letter-spacing:-.3px;
-}
-.opp-content{
-  color:var(--text);
-  font-size:14.5px;
-  line-height:1.7;
-}
-.opp-content p{margin-bottom:12px}
-.opp-content p:last-child{margin-bottom:0}
-.opp-content strong{color:var(--text-bright);font-weight:600}
-.opp-content em{font-style:italic;color:var(--accent);font-weight:500}
-
-/* ===== Credentialing ===== */
-.creds-section{
-  border-top:1px solid var(--border);
-  padding:40px 0;
-  background:var(--bg);
-  position:relative;
-  z-index:1;
-}
-.creds{
-  font-family:var(--mono);font-size:12px;color:var(--text);
-  letter-spacing:.5px;line-height:1.85;max-width:680px;
-  margin:0 auto;padding:0 24px;
-}
-.creds strong{color:var(--text-bright);font-weight:500}
-.creds .at-mark{color:var(--accent);font-weight:600}
-.creds .with-mark{color:var(--amber);font-weight:600}
-.creds .raf{color:var(--green);font-weight:500}
-
-/* ===== What we've delivered (existing content) ===== */
-.delivered-section{
-  border-top:1px solid var(--border);
-  padding:48px 0;
-  background:var(--bg);
-  position:relative;
-  z-index:1;
-}
-.delivered{
-  font-family:var(--sans);font-size:13.5px;color:var(--text);line-height:1.65;
-  max-width:680px;
-  background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
-  padding:20px 22px 18px;position:relative;overflow:hidden;
-  margin:0 auto;
-}
-.delivered::before{
-  content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--cyan),var(--accent),var(--green));
-  opacity:.7;
-}
-.delivered-label{
-  font-family:var(--mono);font-size:11.5px;color:var(--cyan);
-  letter-spacing:1.5px;text-transform:uppercase;font-weight:600;
-  margin-bottom:14px;display:block;
-}
-.delivered .d-item{
-  padding:11px 0;border-bottom:1px solid var(--border);
-  display:flex;gap:10px;line-height:1.6;
-}
-.delivered .d-item:last-child{border-bottom:none;padding-bottom:2px}
-.delivered .d-item:first-of-type{padding-top:0}
-.delivered .d-arrow{color:var(--accent);font-weight:600;flex-shrink:0;font-family:var(--mono);font-size:14px}
-.delivered .d-item strong{color:var(--text-bright);font-weight:600}
-.delivered .d-item em{font-style:italic;color:var(--cyan);font-weight:500}
-.delivered .alldare-link{
-  color:var(--text-bright);text-decoration:underline;
-  text-decoration-color:var(--border-accent);text-underline-offset:3px;font-weight:500;
-}
-.delivered .alldare-link:hover{color:var(--accent);text-decoration-color:var(--accent)}
-
-/* ===== Bridge ===== */
-.bridge-section{
-  padding:24px 0;
-  background:var(--bg);
-  position:relative;
-  z-index:1;
-}
-.bridge-line{
-  font-family:var(--mono);font-size:12px;color:var(--text);
-  letter-spacing:.5px;max-width:680px;
-  margin:0 auto;padding:0 24px;
-}
-.bridge-line a{
-  color:var(--accent);text-decoration:underline;
-  text-decoration-color:rgba(94,143,255,.45);text-underline-offset:3px;
-  font-weight:500;
-}
-.bridge-line a:hover{color:var(--text-bright);text-decoration-color:var(--text-bright)}
-
-/* ===== Contact CTA ===== */
-.cta-section{
-  padding:32px 0 48px;
-  background:var(--bg);
-  position:relative;
-  z-index:1;
-}
-.cta-block{
-  padding:20px 22px 22px;
-  background:var(--bg-card);
-  border:1px solid var(--border-accent);
-  border-radius:8px;
-  max-width:680px;
-  position:relative;
-  margin:0 auto;
-}
-.cta-block::before{
-  content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--green));
-  border-radius:8px 8px 0 0;
-}
-.cta-prompt{
-  font-size:15px;
-  color:var(--text);
-  line-height:1.65;
-  margin-bottom:18px;
-  max-width:600px;
-}
-.cta-prompt strong{color:var(--text-bright);font-weight:500}
-.contact-row{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--mono);font-size:12px;font-weight:500;
-  padding:12px 22px;text-decoration:none;border-radius:6px;
-  transition:all .2s ease;letter-spacing:1.2px;text-transform:uppercase;
-}
-.btn-primary{background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
-.btn-primary:hover{background:var(--text-bright);border-color:var(--text-bright);color:var(--bg)}
-.alt-link{font-family:var(--mono);font-size:12px;color:var(--text);letter-spacing:1px;text-transform:uppercase;font-weight:500}
-.alt-link a{color:var(--text-bright);text-decoration:underline;text-decoration-color:var(--border-accent);text-underline-offset:4px}
-.alt-link a:hover{color:var(--accent);text-decoration-color:var(--accent)}
-
-/* ===== Capabilities (FAQ cards) ===== */
-.caps-section{
-  border-top:1px solid var(--border);
-  padding:48px 0 56px;
-  background:var(--bg);
-  position:relative;
-  z-index:1;
-}
-.caps-inner{
-  max-width:920px;
-  margin:0 auto;
-  padding:0 24px;
-}
-.caps-h2{
-  font-size:clamp(24px,2.6vw,28px);font-weight:300;color:var(--text-bright);
-  line-height:1.25;margin-bottom:14px;letter-spacing:-.4px;max-width:24ch;
-}
-.caps-h2 strong{font-weight:600}
-.caps-h2 em{font-style:italic;font-weight:400;color:var(--accent)}
-.caps-intro{
-  color:var(--text);font-size:15px;line-height:1.7;
-  margin-bottom:28px;max-width:580px;
-}
-.caps-intro strong{color:var(--text-bright)}
-.caps-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
-}
-.cap-card{
-  background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
-  padding:22px 24px;position:relative;overflow:hidden;
-}
-.cap-card::before{
-  content:"";position:absolute;top:0;left:0;width:3px;height:100%;
-  background:var(--accent);opacity:.55;
-}
-.cap-card.green::before{background:var(--green);opacity:.6}
-.cap-card.amber::before{background:var(--amber);opacity:.6}
-.cap-card.violet::before{background:var(--violet);opacity:.6}
-.cap-card.cyan::before{background:var(--cyan);opacity:.6}
-.cap-card h4{
-  font-size:14.5px;font-weight:600;color:var(--text-bright);
-  margin-bottom:10px;letter-spacing:-.2px;
-}
-.cap-card p{
-  font-size:13.5px;color:var(--text);line-height:1.6;
-}
-.cap-card p strong{color:var(--text-bright)}
-.cap-card.full{grid-column:1 / -1}
-.cap-card.full h4{font-size:16px}
-.cap-card.full p{font-size:14.5px;line-height:1.65}
-
-/* ===== Explainer (chess board PS) ===== */
-.explainer{
-  border-top:1px solid var(--border);
-  padding:32px 0 36px;
-  background:var(--bg);
-  position:relative;
-  z-index:1;
-}
-.explainer-inner{
-  max-width:920px;
-  margin:0 auto;
-  padding:0 24px;
-}
-.explainer p{
-  font-family:var(--sans);
-  font-size:14px;
-  color:var(--text);
-  line-height:1.7;
-  max-width:640px;
-  font-style:italic;
-}
-.explainer p strong{
-  color:var(--text-bright);
-  font-style:normal;
-  font-weight:500;
-}
-.explainer-label{
-  display:inline-block;
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--accent);
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  font-weight:600;
-  margin-right:10px;
-  font-style:normal;
-  vertical-align:1px;
-}
-
-/* ===== Footer ===== */
-footer{border-top:1px solid var(--border);padding:24px 0;background:var(--bg);position:relative;z-index:1}
-.footer-inner{
-  max-width:920px;margin:0 auto;padding:0 24px;
-  display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center;
-  font-family:var(--mono);font-size:11.5px;color:var(--text-dim);letter-spacing:.5px;text-transform:uppercase;
-}
-.footer-inner a{color:var(--text-bright);text-decoration:none}
-.footer-inner a:hover{color:var(--accent)}
-
-/* ===== Anim ===== */
-.fi{opacity:0;transform:translateY(12px);animation:fup .55s ease forwards}
-.fi:nth-child(1){animation-delay:.05s}
-.fi:nth-child(2){animation-delay:.13s}
-.fi:nth-child(3){animation-delay:.22s}
-.fi:nth-child(4){animation-delay:.15s}
-.fi:nth-child(5){animation-delay:.42s}
-.fi:nth-child(6){animation-delay:.52s}
-.fi:nth-child(7){animation-delay:.62s}
-.fi:nth-child(8){animation-delay:.72s}
-.fi:nth-child(9){animation-delay:.82s}
-.fi:nth-child(10){animation-delay:.92s}
-@keyframes fup{to{opacity:1;transform:translateY(0)}}
-@media (prefers-reduced-motion: reduce){.fi{opacity:1;transform:none;animation:none}}
-
-@media(max-width:760px){
-  .hero{padding:40px 0 36px}
-  .hero-inner{grid-template-columns:1fr;gap:28px}
-  .hero-canvas-wrap{order:-1;padding-top:0}
-  .hero h1{font-size:30px;max-width:none}
-  .we-make{font-size:13px}
-  .thesis-line{font-size:14.5px}
-  .triangulation{font-size:12px}
-  .method-flow{grid-template-columns:1fr 1fr}
-  .step{border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .step:nth-child(2n){border-right:none}
-  .step:nth-last-of-type(-n+2){border-bottom:none}
-  .partnership-banner{font-size:11px;padding:14px 12px;letter-spacing:1.5px}
-  .partnership-banner::before,.partnership-banner::after{max-width:60px}
-  .outcome-row{grid-template-columns:1fr}
-  .outcome{border-right:none;border-bottom:1px solid var(--border)}
-  .outcome:last-child{border-bottom:none}
-  .o-desc{font-size:13px}
-  .case-details{grid-template-columns:1fr}
-  .caps-grid{grid-template-columns:1fr}
-  .cap-card p{font-size:14px}
-  .explainer p{font-size:14px}
-  .footer-inner{flex-direction:column;gap:8px;text-align:center;align-items:center;font-size:11px}
-}
-@media(max-width:480px){
-  .method-flow{grid-template-columns:1fr}
-  .step{border-right:none;border-bottom:1px solid var(--border)}
-  .step:nth-child(2n){border-right:none}
-  .step:nth-last-of-type(-n+2){border-bottom:1px solid var(--border)}
-  .step:last-of-type{border-bottom:none}
-  .partnership-banner::before,.partnership-banner::after{display:none}
-}
+  @media print {
+    body::before { display: none; }
+    .form-wrapper, .cta-card, .footer, .back-bar { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="container">
-    <a href="/" class="logo">
-      <canvas id="navLogo" width="40" height="40"></canvas>
-      <span class="logo-text">IPQI<span class="slash">/</span><span class="work">work</span></span>
-    </a>
-    <span class="nav-status">Discovery-led &middot; Outcome-based</span>
-  </div>
-</nav>
+<div class="back-bar">
+  <a href="/" class="back-link"><span class="arrow">←</span> ipqi.work</a>
+</div>
 
-<header class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div>
+<div class="frame">
 
-        <p class="we-make fi">
-          We make business <span class="verb">work</span>.&nbsp;&nbsp;We make AI <span class="accent">work</span>.
-        </p>
-
-        <h1 class="fi">
-          Discovery first. <em>Transformation second.</em><br>Payment when value lands.
-        </h1>
-
-        <p class="thesis-line fi">
-          Not just techies. Not just consultants. <strong>Neither.</strong> We've owned complex business problems for thirty years &mdash; multi-million-dollar programmes inside the world's largest institutions, hands-on inside scale-ups, founder of multiple companies. We combine <strong>senior operating experience, AI engineering capability, and commercial proof</strong> to deliver what business leaders actually need: <span class="durability">cost out, revenue in, regulators happy.</span> Through <strong>technical + business discovery</strong>, we identify how AI, technology, and process redesign can transform specific outcomes &mdash; then ship in <strong>fast parallel sprints</strong> measured in days and weeks, not quarters.
-        </p>
-
-        <p class="triangulation fi">
-          <span class="cyan">How the AI runs.</span> Code-writing and review-writing systems run on <strong>disjoint scope</strong> &mdash; epistemic independence. No agent marks its own homework. The same triangulation principle that runs every algorithm on our trading platform runs every engagement here.
-        </p>
-
-        <div class="outcomes fi">
-          <div class="outcome-row">
-            <div class="outcome">
-              <span class="o-num">01</span>
-              <span class="o-label">Cost out</span>
-              <span class="o-desc">Manual work, duplication, process drag &mdash; removed through AI, automation, and redesign.</span>
-            </div>
-            <div class="outcome">
-              <span class="o-num">02</span>
-              <span class="o-label">Revenue in</span>
-              <span class="o-desc">Sales productivity, customer targeting, conversion, speed-to-response &mdash; measurably improved.</span>
-            </div>
-            <div class="outcome">
-              <span class="o-num">03</span>
-              <span class="o-label">Regulators happy</span>
-              <span class="o-desc">AI-enabled controls, evidence capture, workflow discipline &mdash; audit-ready by design.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="method fi">
-          <div class="method-label">How we work</div>
-          <div class="method-flow">
-            <div class="step s1">
-              <span class="step-num">01</span>
-              <div class="step-title">Discovery</div>
-              <div class="step-time">90 min &middot; free</div>
-            </div>
-            <div class="step s2">
-              <span class="step-num">02</span>
-              <div class="step-title">Transformation plan</div>
-              <div class="step-time">days</div>
-            </div>
-            <div class="step s3">
-              <span class="step-num">03</span>
-              <div class="step-title">Fast parallel sprints</div>
-              <div class="step-time">days &amp; weeks</div>
-            </div>
-            <div class="step s4">
-              <span class="step-num">04</span>
-              <div class="step-title">Measure &amp; iterate</div>
-              <div class="step-time">continuous</div>
-            </div>
-            <div class="partnership-banner">
-              <span class="pb-arrow">&larr;</span>
-              <span>Long-term partnership</span>
-              <span class="pb-arrow">&rarr;</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="hero-canvas-wrap fi">
-        <canvas id="heroLogo" width="144" height="144"></canvas>
-        <div class="hero-canvas-label">From principle<br>to practice</div>
-      </div>
+  <header class="masthead">
+    <div class="establishment">Classic &amp; Collectible Cars</div>
+    <h1 class="masthead-title">An <em>Indicative</em> Valuation</h1>
+    <p class="masthead-sub">A considered read on what your car would do in today's market — drawn from comparable sales, condition, history, and the mood of serious buyers.</p>
+    <div class="masthead-meta">
+      <span>Specialist Assessment</span>
+      <span class="pip"></span>
+      <span id="date-stamp"></span>
+      <span class="pip"></span>
+      <span>Demonstration</span>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- ===== RECENT TRANSFORMATIONS (NEW SECTION) ===== -->
-<section class="transformations">
-  <div class="transformations-inner">
-    <div class="section-label">Recent work</div>
-    <h2 class="section-h2">From discovery to <em>delivery.</em></h2>
-    <p class="section-intro">
-      Three recent engagements. Different industries, different challenges. Same approach: <strong>90-minute discovery</strong> identifies the transformation opportunity. Technical + business plan delivered in <strong>days</strong>. First working systems shipped in <strong>days to weeks</strong>. Value measured from week one.
-    </p>
+  <p class="preamble">Tell us about your car. Add a few photographs if you have them. We'll come back with <strong>a sober, specific read</strong> on where it sits — and what would lift the upper end.</p>
 
-    <div class="case-grid">
-      <!-- Case 1: Car Auction Platform -->
-      <div class="case-card c1 fi">
-        <div class="case-header">
-          <div class="case-title">Car Auction Platform</div>
-          <div class="case-meta">Ongoing</div>
-        </div>
-        <div class="case-metric">£1m+ annual value identified</div>
-        <div class="case-content">
-          <p><strong>Challenge:</strong> Manual competitive intelligence tracking. Limited market share in £75k-100k segment (~2% vs. 25-30% addressable). Operational inefficiencies across customer experience.</p>
-          <p><strong>Discovery:</strong> 90-minute technical + business session with CEO and CFO identified seven coordinated transformation opportunities across market intelligence, customer experience, and operational automation.</p>
-          <p><strong>Transformation plan:</strong> AI-enabled market intelligence automation + operational process redesign + customer engagement transformation. Delivered 48 hours after discovery session.</p>
-          <p><strong>Identified value:</strong> £1.1m annual net revenue opportunity from increased market share + operational efficiency gains. Implementation in fast parallel sprints.</p>
-        </div>
-        <div class="case-details">
-          <div class="detail-item">
-            <div class="detail-label">Discovery to plan</div>
-            <div class="detail-value">48 hours</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Transformation areas</div>
-            <div class="detail-value">7 coordinated builds</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Annual value</div>
-            <div class="detail-value">£1m+ identified</div>
-          </div>
-        </div>
+  <section class="form-wrapper" id="form-section">
+    <div class="section-label">Step One</div>
+    <h2 class="section-heading">The <em>Particulars</em></h2>
+    <p class="section-byline">Start with the registration if you have it. Or skip and complete the fields below.</p>
+
+    <div class="reg-row">
+      <input type="text" id="reg" class="reg-plate" placeholder="REG NUMBER" maxlength="8" autocomplete="off">
+      <span class="reg-help">Optional. Will pre-fill make, model and year where DVLA has the record.</span>
+    </div>
+
+    <div class="field-grid">
+      <div class="field">
+        <label for="make-model">Make &amp; Model <span class="required">*</span></label>
+        <input type="text" id="make-model" placeholder="e.g. Porsche 911 2.4 S Coupé">
       </div>
-
-      <!-- Case 2: Market-Entry Specialist -->
-      <div class="case-card c2 fi">
-        <div class="case-header">
-          <div class="case-title">Market-Entry Specialist</div>
-          <div class="case-meta">Delivered</div>
-        </div>
-        <div class="case-metric">80% time reduction</div>
-        <div class="case-content">
-          <p><strong>Challenge:</strong> Manual monitoring of FinTech regulatory changes across EU/UK jurisdictions. 5-8 hours per week per client. Inconsistent coverage — analysts miss breaking news and regulatory deadlines.</p>
-          <p><strong>Solution:</strong> Implemented AI automation using approach similar to Anthropic's financial services templates (released 7 May 2026), customized with EU/UK regulatory context and FinTech domain expertise. Connected to RSS feeds, regulatory sites (FCA, EBA, ESMA), and competitor tracking.</p>
-          <p><strong>Delivered:</strong> 7 days from discovery to production system. AI workflow: daily scrape → Claude analysis against client-specific brief → weekly digest → same-day escalation for high-priority items.</p>
-          <p><strong>Result:</strong> 80% time reduction (5-8 hours/week → 1 hour/week per client). Same-day escalation vs. weekly lag. 10x client capacity with no additional analyst headcount.</p>
-        </div>
-        <div class="case-details">
-          <div class="detail-item">
-            <div class="detail-label">Discovery to production</div>
-            <div class="detail-value">7 days</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Time reduction</div>
-            <div class="detail-value">80% (5-8h → 1h/week)</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Capacity increase</div>
-            <div class="detail-value">10x clients, no new headcount</div>
-          </div>
-        </div>
+      <div class="field">
+        <label for="year">Year <span class="required">*</span></label>
+        <input type="text" id="year" placeholder="e.g. 1973">
       </div>
-
-      <!-- Case 3: Wealth Management Firm -->
-      <div class="case-card c3 fi">
-        <div class="case-header">
-          <div class="case-title">Wealth Management Firm</div>
-          <div class="case-meta">Delivered</div>
-        </div>
-        <div class="case-metric">FCA audit-ready in 14 days</div>
-        <div class="case-content">
-          <p><strong>Challenge:</strong> FCA Consumer Duty requires evidence of good client outcomes. Manual note-taking inconsistent across 4-adviser team. Documentation gaps discovered during internal audit — too late to fix. Time-consuming to prepare evidence pack for FCA review.</p>
-          <p><strong>Solution:</strong> Implemented AI-enabled compliance monitoring with Consumer Duty framework customization. Connected to email (Outlook API), meeting notes, call transcripts. AI analyzes every interaction against FCA requirements, flags gaps, generates audit-ready evidence archive.</p>
-          <p><strong>Delivered:</strong> 14 days from discovery to full adviser team adoption. System running production for entire firm.</p>
-          <p><strong>Result:</strong> 70% time reduction on compliance documentation (30 mins → 10 mins per interaction). Proactive gap identification — issues surfaced immediately, not post-audit. Complete FCA audit trail, exportable to PDF. 100% team adoption after 1-week trial.</p>
-        </div>
-        <div class="case-details">
-          <div class="detail-item">
-            <div class="detail-label">Discovery to adoption</div>
-            <div class="detail-value">14 days</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Time reduction</div>
-            <div class="detail-value">70% (30min → 10min)</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Team adoption</div>
-            <div class="detail-value">4/4 advisers, unprompted use</div>
-          </div>
-        </div>
+      <div class="field">
+        <label for="variant">Variant / Specification <span class="optional">(if known)</span></label>
+        <input type="text" id="variant" placeholder="e.g. RHD, matching numbers, Sport seats">
+      </div>
+      <div class="field">
+        <label for="mileage">Mileage <span class="required">*</span></label>
+        <input type="text" id="mileage" placeholder="e.g. 84,000">
+      </div>
+      <div class="field">
+        <label for="colour">Colour &amp; Trim <span class="optional">(if relevant)</span></label>
+        <input type="text" id="colour" placeholder="e.g. Signal Yellow / Black leather">
+      </div>
+      <div class="field">
+        <label for="owners">Owners from new <span class="optional">(approximate)</span></label>
+        <input type="text" id="owners" placeholder="e.g. 3">
       </div>
     </div>
 
-    <!-- Anthropic Opportunity Callout -->
-    <div class="opportunity-callout fi">
-      <div class="opp-label">Current opportunity</div>
-      <div class="opp-title">Pre-Built AI Templates for Financial Services</div>
-      <div class="opp-content">
-        <p>If you're in financial services, <strong>ready-to-run AI templates</strong> now exist for your most time-consuming workflows: pitchbook generation, compliance monitoring, credit memos, KYC screening, month-end close automation, client reporting, due diligence support. These aren't vaporware — they're production-grade AI systems that can deliver <strong>60-80% time reduction</strong> on manual work when implemented correctly.</p>
-        <p><strong>The value:</strong> What currently takes your team 5-8 hours per week drops to 1 hour. What takes 30 minutes per interaction drops to 10 minutes. Junior analyst work gets automated. Senior people focus on judgement, not grunt work. Measurable cost out and capacity increase from week one.</p>
-        <p><strong>The implementation gap:</strong> Generic templates lack UK regulatory context and domain expertise. Consumer Duty for IFAs. MiFID II for asset managers. FCA lending rules for specialist lenders. Someone needs to bridge that gap — and do it in <em>days</em>, not quarters, so you see ROI immediately.</p>
-        <p><strong>Why we're positioned for this:</strong> The market-entry specialist case above (80% time reduction in 7 days) used exactly this approach — pre-built AI templates + domain customization + regulatory context. Our unique combination of <em>30 years financial services operating experience</em> plus <em>agentic AI engineering capability</em> means we can implement these pre-packaged offerings and unlock their value extremely quickly. Where most consultants either know FS <strong>or</strong> know AI engineering, we know both — and we ship working systems, not PowerPoint strategies.</p>
-        <p>Anthropic released 10 financial services templates on 7 May 2026, backed by a $12bn mid-market implementation fund. The templates exist. The capital exists. The window is open. The only question: do you have someone who can implement them with the domain expertise they lack?</p>
+    <div class="field span-2" style="margin-bottom: 36px;">
+      <label>Condition <span class="required">*</span></label>
+      <div class="condition-set">
+        <label class="condition-pill">
+          <input type="radio" name="condition" value="Driver">
+          <div class="pill-body">
+            <div class="pill-title">Driver</div>
+            <div class="pill-sub">Honest, used, useable</div>
+          </div>
+        </label>
+        <label class="condition-pill">
+          <input type="radio" name="condition" value="Well-Kept">
+          <div class="pill-body">
+            <div class="pill-title">Well-Kept</div>
+            <div class="pill-sub">Cherished, presentable</div>
+          </div>
+        </label>
+        <label class="condition-pill">
+          <input type="radio" name="condition" value="Show-Quality">
+          <div class="pill-body">
+            <div class="pill-title">Show-Quality</div>
+            <div class="pill-sub">Restored, exceptional</div>
+          </div>
+        </label>
+        <label class="condition-pill">
+          <input type="radio" name="condition" value="Concours">
+          <div class="pill-body">
+            <div class="pill-title">Concours</div>
+            <div class="pill-sub">Best-of-marque</div>
+          </div>
+        </label>
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ===== CREDENTIALS (moved down from hero) ===== -->
-<section class="creds-section">
-  <p class="creds">
-    <span class="at-mark">AT</span> Cisco &middot; Oracle &middot; ServiceNow &nbsp;<span style="color:var(--border-accent)">|</span>&nbsp;
-    <span class="with-mark">INTO</span> HSBC &middot; Lloyds &middot; JP Morgan &middot; Reuters &amp; other global institutions at board level &nbsp;<span style="color:var(--border-accent)">|</span>&nbsp;
-    <span class="raf">Commissioned Officer, Royal Air Force</span>
-  </p>
-</section>
-
-<!-- ===== WHAT WE'VE DELIVERED (existing content) ===== -->
-<section class="delivered-section">
-  <div class="delivered">
-    <span class="delivered-label">Track record</span>
-    <div class="d-item">
-      <span class="d-arrow">&rarr;</span>
-      <span><strong>Value-share engagements with large UK financial services firms.</strong> Customer-experience transformation programmes paid only on realised customer upsell &mdash; not on hours, not on day rates. CEO-sponsored. Anonymised case detail and references available under NDA.</span>
-    </div>
-    <div class="d-item">
-      <span class="d-arrow">&rarr;</span>
-      <span><strong>Defence AI &mdash; <a href="https://alldare.com" target="_blank" rel="noopener noreferrer" class="alldare-link">alldare</a> consortium delivery of an MoD contract.</strong> Proof-of-value through to production adoption, now an ongoing multi-million programme.</span>
-    </div>
-    <div class="d-item">
-      <span class="d-arrow">&rarr;</span>
-      <span><strong>Continuously:</strong> we run our own AI on our own capital &mdash; systematic trading platform, every fill audit-logged. <em>We use what we sell.</em></span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== BRIDGE ===== -->
-<section class="bridge-section">
-  <p class="bridge-line">
-    Same principles, same AI, same engineering as our systematic trading platform &rarr; <a href="https://ipqi.co.uk" target="_blank" rel="noopener noreferrer">ipqi.co.uk</a>
-  </p>
-</section>
-
-<!-- ===== CONTACT CTA ===== -->
-<section class="cta-section">
-  <div class="cta-block">
-    <p class="cta-prompt">
-      <strong>Bring us one business problem.</strong> Cost pressure, revenue friction, compliance burden, operational drag. In a 90-minute discovery, we'll tell you whether there's a measurable value case for AI and transformation &mdash; or whether there isn't.
-    </p>
-    <div class="contact-row">
-      <a href="mailto:discovery@ipqi.work?subject=Business%20problem%20to%20discuss" class="btn btn-primary">Send us the problem &rarr;</a>
-      <span class="alt-link">or <a href="https://www.linkedin.com/in/ianpratley/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ CARDS ===== -->
-<section class="caps-section">
-  <div class="caps-inner">
-    <div class="section-label">For mid-market CEOs</div>
-    <h2 class="caps-h2">What you'll ask. <em>Already answered.</em></h2>
-    <p class="caps-intro">The questions that separate a serious transformation conversation from a slideware one. <strong>Most consultants are one of three things: senior operators, AI engineers, or commercially proven recently. We are all three.</strong></p>
-
-    <div class="caps-grid">
-      <div class="cap-card green">
-        <h4>What does this actually cost me?</h4>
-        <p>Nothing upfront. No day rates. We agree the value measure in writing before work starts &mdash; and we get paid as a share of value <strong>once it's realised</strong>. <strong>Typical initial engagements £25k–£100k+; scope-flexible at the lower end for the right fit; partnerships compound into multi-million over time.</strong> The 90-minute discovery is on us either way.</p>
-      </div>
-
-      <div class="cap-card">
-        <h4>Who actually does the work?</h4>
-        <p>A senior operator with 30 years of board-level delivery, directing AI engineering capacity and selected human specialists. Not a junior with a ChatGPT subscription. <strong>You speak to the person doing the work.</strong></p>
-      </div>
-
-      <div class="cap-card amber">
-        <h4>How quickly will I see something?</h4>
-        <p>First quick wins in days, not quarters. Transformation plan agreed in weeks. We don't ask you to wait six months for a discovery report &mdash; the only thing that delivers value is shipping.</p>
-      </div>
-
-      <div class="cap-card violet">
-        <h4>What if it doesn't work?</h4>
-        <p><strong>No win, no fee.</strong> If the transformation approach can't be made to land for your situation, you don't pay &mdash; and you've gained the operator experience and insights from the engagement regardless. Our incentive is identical to yours: <strong>real value, measurably realised.</strong></p>
-      </div>
-
-      <div class="cap-card cyan">
-        <h4>Will my team have to babysit?</h4>
-        <p>No. We bring the engineering capacity. The only thing we ask of your team is <strong>openness and transparency</strong> &mdash; no special skills required, no systems to procure, no specialist team to staff. Your team's job is to know the business and confirm the outcomes.</p>
-      </div>
-
-      <div class="cap-card">
-        <h4>How do I know the work is sound?</h4>
-        <p>Code-writing and review-writing systems run on disjoint scope. The same audit-by-construction discipline that runs our trading platform runs every engagement here. <strong>Evidence at decision time, not retrofitted to a deck.</strong></p>
-      </div>
-
-      <div class="cap-card full">
-        <h4>Why not the big consulting firms?</h4>
-        <p>Big-firm process. Big-firm slideware. Big-firm timelines. Big-firm bills, mostly to fund the partner pyramid. We're <strong>small, fast, founder-direct</strong> &mdash; the person who scopes the work is the person who runs it. Operator experience plus AI engineering depth, combined in one place rather than wired together across departments. <strong>Most consultants have one or the other. Most enterprise operators have neither. We have all three.</strong></p>
+    <div class="field span-2" style="margin-bottom: 36px;">
+      <label>History &amp; Provenance <span class="optional">(tick all that apply)</span></label>
+      <div class="history-grid">
+        <label class="history-item">
+          <input type="checkbox" value="matching numbers" class="history-cb">
+          <span class="box"></span>
+          <span>Matching numbers</span>
+        </label>
+        <label class="history-item">
+          <input type="checkbox" value="full service history" class="history-cb">
+          <span class="box"></span>
+          <span>Full service history</span>
+        </label>
+        <label class="history-item">
+          <input type="checkbox" value="original colour" class="history-cb">
+          <span class="box"></span>
+          <span>Original colour</span>
+        </label>
+        <label class="history-item">
+          <input type="checkbox" value="marque specialist maintained" class="history-cb">
+          <span class="box"></span>
+          <span>Marque specialist maintained</span>
+        </label>
+        <label class="history-item">
+          <input type="checkbox" value="restoration documented" class="history-cb">
+          <span class="box"></span>
+          <span>Restoration documented</span>
+        </label>
+        <label class="history-item">
+          <input type="checkbox" value="original tools books handbook" class="history-cb">
+          <span class="box"></span>
+          <span>Original tools, books, handbook</span>
+        </label>
+        <label class="history-item">
+          <input type="checkbox" value="long-term ownership" class="history-cb">
+          <span class="box"></span>
+          <span>Long-term ownership</span>
+        </label>
+        <label class="history-item">
+          <input type="checkbox" value="period race or competition history" class="history-cb">
+          <span class="box"></span>
+          <span>Period race / competition</span>
+        </label>
       </div>
     </div>
-  </div>
-</section>
 
-<aside class="explainer">
-  <div class="explainer-inner">
-    <p>
-      <span class="explainer-label">PS</span>
-      The chess board isn't decoration. <strong>ipqi</strong> is a real chess square &mdash; the legal moves a piece can make from <strong>d4</strong>. The pulsing cells are the queen's possible moves. Defined possibilities, constrained, evidence-led. It's the same framework that runs every algorithm on our trading platform &mdash; and every engagement here.
-    </p>
-  </div>
-</aside>
+    <div class="field span-2" style="margin-bottom: 36px;">
+      <label for="notes">Notes <span class="optional">(recent work, receipts, anything else worth telling us)</span></label>
+      <textarea id="notes" placeholder="e.g. Engine rebuilt 2022 by marque specialist, £18k. New tyres last year. Sympathetic respray 2018. Some stone chips on bonnet edge..."></textarea>
+    </div>
 
-<footer>
-  <div class="footer-inner">
-    <span class="footer-co">IPQI LTD &nbsp;&middot;&nbsp; COMPANY NO. 16998393 &nbsp;&middot;&nbsp; REGISTERED IN ENGLAND &amp; WALES</span>
-    <span class="footer-co">PILGRIM HOUSE, OXFORD PLACE, PLYMOUTH, PL1 5AJ &nbsp;&middot;&nbsp; &copy; <span id="year">2026</span></span>
+    <div class="field span-2">
+      <label>Photographs <span class="optional">(optional, up to 6 — exterior, interior, engine, history file)</span></label>
+      <label class="photo-zone" for="photo-input">
+        <input type="file" id="photo-input" class="photo-input" accept="image/*" multiple>
+        <div class="photo-zone-title">Add <em>photographs</em></div>
+        <div class="photo-zone-help">Click to choose. Photos help us read condition, originality and presentation directly.</div>
+        <div class="photo-thumbs" id="photo-thumbs"></div>
+      </label>
+    </div>
+
+    <div class="action-bar">
+      <div class="action-help">A first-pass read takes about a minute. No email required to see it.</div>
+      <button class="btn-primary" id="submit-btn">Request the Valuation</button>
+    </div>
+
+    <div class="error-msg" id="error-msg"></div>
+  </section>
+
+  <div class="loading-state" id="loading">
+    <div class="loading-art"><em>Drawing the assessment</em></div>
+    <div class="loading-rule"></div>
+    <div class="loading-stage" id="loading-stage">Reading the particulars…</div>
   </div>
-</footer>
+
+  <section class="assessment" id="assessment">
+    <article class="letter">
+      <header class="letter-head">
+        <div class="letter-eyebrow">Indicative Valuation</div>
+        <h2 class="letter-title">An <em>Indicative</em> Valuation</h2>
+        <p class="letter-subject" id="letter-subject">—</p>
+      </header>
+
+      <div class="figure-block">
+        <div class="figure-label">Indicative Range</div>
+        <div class="figure-range" id="figure-range">—</div>
+        <div class="figure-note" id="figure-note">Based on current UK market conditions for comparable cars.</div>
+      </div>
+
+      <div class="letter-body" id="letter-body"></div>
+
+      <div class="signature">
+        <div class="sig-line">Yours,</div>
+        <div class="sig-name">The Valuation Studio</div>
+        <div class="sig-role">An AI-assisted first-pass read for classic &amp; collectible cars</div>
+      </div>
+    </article>
+
+    <div class="cta-card" id="cta-card">
+      <div class="cta-eyebrow">Next Step</div>
+      <h3 class="cta-title">Want a <em>formal</em> valuation — or to discuss listing?</h3>
+      <p class="cta-text">A specialist can give you a sale-ready figure with sight of the car and its file, and walk you through the auction process. No commitment.</p>
+
+      <div class="cta-form" id="cta-form">
+        <div class="field">
+          <label for="cta-name">Your Name</label>
+          <input type="text" id="cta-name" placeholder="e.g. James Howard" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="cta-email">Email</label>
+          <input type="email" id="cta-email" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <button class="btn-cta" id="cta-submit">Talk to a Specialist</button>
+      </div>
+
+      <div class="cta-success" id="cta-success">
+        Thank you. A specialist will be in touch within one working day.
+      </div>
+    </div>
+
+    <p class="footnote">An indicative read, not a formal valuation. Trends shift; condition matters most; the right buyer matters more. Use this to set expectations and start a conversation, not as a binding figure.</p>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-text">A demonstration of AI-assisted seller-side valuation for classic and collectible cars.</span>
+    <span class="footer-text">Drafted by machine. Read by you.</span>
+  </footer>
+
+</div>
 
 <script>
-const N=8, OR=[4,3];
-const COL={knight:"#3ddef0",bishop:"#b39bff",rook:"#f5b347",queen:"#5e8fff",origin:"#f0f2f7"};
-const DIM="#2a2b35";
+  const now = new Date();
+  const dateOpts = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('date-stamp').textContent = now.toLocaleDateString('en-GB', dateOpts);
 
-function inB(r,c){return r>=0&&r<N&&c>=0&&c<N;}
-function sl(dirs){const[or,oc]=OR,m=[];for(const[dr,dc]of dirs)for(let i=1;i<N;i++){const r=or+dr*i,c=oc+dc*i;if(inB(r,c))m.push([r,c]);else break;}return m;}
-const bm=()=>sl([[-1,-1],[-1,1],[1,-1],[1,1]]);
-const rm=()=>sl([[-1,0],[1,0],[0,-1],[0,1]]);
-const qm=()=>[...bm(),...rm()];
-function km(){const[or,oc]=OR;return[[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]].map(([dr,dc])=>[or+dr,oc+dc]).filter(([r,c])=>inB(r,c));}
-const PC={knight:km(),bishop:bm(),rook:rm(),queen:qm()};
+  const submitBtn = document.getElementById('submit-btn');
+  const errorMsg = document.getElementById('error-msg');
+  const formSection = document.getElementById('form-section');
+  const loadingEl = document.getElementById('loading');
+  const loadingStage = document.getElementById('loading-stage');
+  const assessmentEl = document.getElementById('assessment');
+  const photoInput = document.getElementById('photo-input');
+  const photoThumbs = document.getElementById('photo-thumbs');
+  const ctaSubmit = document.getElementById('cta-submit');
+  const ctaForm = document.getElementById('cta-form');
+  const ctaSuccess = document.getElementById('cta-success');
 
-function cp(r,c){
-  if(r===OR[0]&&c===OR[1])return"origin";
-  if(PC.knight.some(([pr,pc])=>pr===r&&pc===c))return"knight";
-  const iB=PC.bishop.some(([pr,pc])=>pr===r&&pc===c);
-  const iR=PC.rook.some(([pr,pc])=>pr===r&&pc===c);
-  if(iB&&iR)return"queen";if(iB)return"bishop";if(iR)return"rook";return null;
-}
-const CP=Array.from({length:N},(_,r)=>Array.from({length:N},(_,c)=>cp(r,c)));
-const _s=((s)=>()=>{s=(s*16807)%2147483647;return s/2147483647;})(42);
-const NOISE=Array.from({length:N},()=>Array.from({length:N},()=>0.05+_s()*0.12));
+  let photoData = [];
 
-function draw(ctx,sz,op,col){
-  const p=sz*0.04,sp=sz-p*2,g=sp*0.035,cell=(sp-g*(N-1))/N,rad=Math.max(0.5,cell*0.1);
-  ctx.clearRect(0,0,sz,sz);
-  for(let r=0;r<N;r++)for(let c=0;c<N;c++){
-    ctx.globalAlpha=op[r][c];ctx.fillStyle=col[r][c];
-    ctx.beginPath();ctx.roundRect(p+c*(cell+g),p+r*(cell+g),cell,cell,rad);ctx.fill();
-  }
-  ctx.globalAlpha=1;
-}
-function h2r(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
-function r2h(r,g,b){return"#"+[r,g,b].map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,"0")).join("");}
-function lC(a,b,t){const[ar,ag,ab]=h2r(a),[br,bg,bb]=h2r(b);return r2h(ar+(br-ar)*t,ag+(bg-ag)*t,ab+(bb-ab)*t);}
-
-function stat(canvas){
-  const ctx=canvas.getContext("2d"),sz=canvas.width;
-  const op=Array.from({length:N},()=>Array.from({length:N},()=>0));
-  const col=Array.from({length:N},()=>Array.from({length:N},()=>DIM));
-  for(let r=0;r<N;r++)for(let c=0;c<N;c++){
-    const p=CP[r][c];
-    if(p==="origin"){op[r][c]=1;col[r][c]=COL.origin;}
-    else if(p){op[r][c]=0.85;col[r][c]=COL[p];}
-    else{op[r][c]=0.04;col[r][c]=DIM;}
-  }
-  draw(ctx,sz,op,col);
-}
-
-function animQueen(canvas){
-  const ctx=canvas.getContext("2d"),sz=canvas.width;
-  const cO=Array.from({length:N},(_,r)=>Array.from({length:N},(_,c)=>NOISE[r][c]));
-  const tO=Array.from({length:N},(_,r)=>Array.from({length:N},(_,c)=>NOISE[r][c]));
-  const cC=Array.from({length:N},()=>Array.from({length:N},()=>DIM));
-  const tC=Array.from({length:N},()=>Array.from({length:N},()=>DIM));
-
-  const QUEEN_COL = "#7ba5ff";
-  const QUEEN_BASE = 0.78;
-  const ORIGIN_BASE = 0.95;
-  const QUEEN_PATH = PC.queen;
-
-  const cellPulses = QUEEN_PATH.map(([r,c])=>({
-    r,c,
-    nextPulse: 100 + Math.random() * 800,
-    pulseDuration: 1400 + Math.random() * 1200,
-    pulseStart: -1,
-    pulsePeak: 0.20 + Math.random() * 0.10
-  }));
-
-  let revealed = false;
-  const REVEAL_TIME = 1100;
-
-  function fr(t){
-    if(!revealed){
-      const revealProgress = Math.min(t / REVEAL_TIME, 1);
-      const easedReveal = 1 - Math.pow(1 - revealProgress, 3);
-      for(const cp of cellPulses){
-        tO[cp.r][cp.c] = NOISE[cp.r][cp.c] + (QUEEN_BASE - NOISE[cp.r][cp.c]) * easedReveal;
-        tC[cp.r][cp.c] = QUEEN_COL;
-      }
-      tO[OR[0]][OR[1]] = NOISE[OR[0]][OR[1]] + (ORIGIN_BASE - NOISE[OR[0]][OR[1]]) * easedReveal;
-      tC[OR[0]][OR[1]] = COL.origin;
-      if(revealProgress >= 1) revealed = true;
-    } else {
-      for(const cp of cellPulses){
-        if(cp.pulseStart === -1 && t > cp.nextPulse){
-          cp.pulseStart = t;
-        }
-        if(cp.pulseStart > 0){
-          const elapsed = t - cp.pulseStart;
-          if(elapsed < cp.pulseDuration){
-            const phase = elapsed / cp.pulseDuration;
-            const intensity = Math.sin(phase * Math.PI);
-            tO[cp.r][cp.c] = QUEEN_BASE + intensity * cp.pulsePeak;
-            tC[cp.r][cp.c] = QUEEN_COL;
-          } else {
-            cp.pulseStart = -1;
-            cp.nextPulse = t + 1000 + Math.random() * 3500;
-            cp.pulseDuration = 1400 + Math.random() * 1200;
-            cp.pulsePeak = 0.20 + Math.random() * 0.10;
-            tO[cp.r][cp.c] = QUEEN_BASE;
-            tC[cp.r][cp.c] = QUEEN_COL;
-          }
-        } else {
-          tO[cp.r][cp.c] = QUEEN_BASE;
-          tC[cp.r][cp.c] = QUEEN_COL;
-        }
-      }
-      tO[OR[0]][OR[1]] = ORIGIN_BASE;
-      tC[OR[0]][OR[1]] = COL.origin;
-    }
-
-    const easeOpacity = 0.18;
-    const easeColour = 0.14;
-    for(let r=0;r<N;r++){
-      for(let c=0;c<N;c++){
-        cO[r][c] += (tO[r][c] - cO[r][c]) * easeOpacity;
-        cC[r][c] = lC(cC[r][c], tC[r][c], easeColour);
+  photoInput.addEventListener('change', async (e) => {
+    const files = Array.from(e.target.files).slice(0, 6 - photoData.length);
+    for (const file of files) {
+      if (photoData.length >= 6) break;
+      try {
+        const base64 = await fileToBase64(file);
+        const media_type = file.type || 'image/jpeg';
+        photoData.push({ base64, media_type, name: file.name });
+        renderPhotoThumbs();
+      } catch (err) {
+        console.error('Photo read failed', err);
       }
     }
+    photoInput.value = '';
+  });
 
-    draw(ctx, sz, cO, cC);
-    requestAnimationFrame(fr);
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result;
+        const base64 = result.split(',')[1];
+        resolve(base64);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   }
 
-  requestAnimationFrame(fr);
-}
+  function renderPhotoThumbs() {
+    photoThumbs.innerHTML = '';
+    photoData.forEach((p, idx) => {
+      const div = document.createElement('div');
+      div.className = 'photo-thumb';
+      div.style.backgroundImage = `url(data:${p.media_type};base64,${p.base64})`;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = '×';
+      btn.setAttribute('aria-label', 'Remove photo');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        photoData.splice(idx, 1);
+        renderPhotoThumbs();
+      });
+      div.appendChild(btn);
+      photoThumbs.appendChild(div);
+    });
+  }
 
-stat(document.getElementById("navLogo"));
-animQueen(document.getElementById("heroLogo"));
-document.getElementById('year').textContent=new Date().getFullYear();
+  document.getElementById('reg').addEventListener('input', function(e) {
+    this.value = this.value.toUpperCase();
+  });
+
+  submitBtn.addEventListener('click', async () => {
+    const data = {
+      reg: document.getElementById('reg').value.trim(),
+      makeModel: document.getElementById('make-model').value.trim(),
+      year: document.getElementById('year').value.trim(),
+      variant: document.getElementById('variant').value.trim(),
+      mileage: document.getElementById('mileage').value.trim(),
+      colour: document.getElementById('colour').value.trim(),
+      owners: document.getElementById('owners').value.trim(),
+      condition: document.querySelector('input[name="condition"]:checked')?.value || '',
+      history: Array.from(document.querySelectorAll('.history-cb:checked')).map(cb => cb.value),
+      notes: document.getElementById('notes').value.trim(),
+      photos: photoData
+    };
+
+    if (!data.makeModel || !data.year || !data.mileage || !data.condition) {
+      showError('Please complete make & model, year, mileage and condition.');
+      return;
+    }
+
+    errorMsg.classList.remove('active');
+    formSection.style.opacity = '0.5';
+    formSection.style.pointerEvents = 'none';
+    loadingEl.classList.add('active');
+    submitBtn.disabled = true;
+
+    const stages = [
+      'Reading the particulars…',
+      'Weighing condition and provenance…',
+      'Reading comparable sales…',
+      'Drafting the assessment…'
+    ];
+    let stageIdx = 0;
+    loadingStage.textContent = stages[0];
+    const stageInterval = setInterval(() => {
+      stageIdx = (stageIdx + 1) % stages.length;
+      loadingStage.textContent = stages[stageIdx];
+    }, 2200);
+
+    try {
+      const result = await callWorker(data);
+      clearInterval(stageInterval);
+      renderAssessment(result, data);
+    } catch (err) {
+      clearInterval(stageInterval);
+      console.error(err);
+      loadingEl.classList.remove('active');
+      formSection.style.opacity = '1';
+      formSection.style.pointerEvents = 'auto';
+      submitBtn.disabled = false;
+      showError(err.message || 'The assessment could not be drawn. Please try again.');
+    }
+  });
+
+  function showError(msg) {
+    errorMsg.textContent = msg;
+    errorMsg.classList.add('active');
+  }
+
+  // Calls the Cloudflare Worker proxy — Worker holds the API key server-side
+  async function callWorker(data) {
+    const response = await fetch('/api/valuate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(`Request failed (${response.status}): ${text.slice(0, 200)}`);
+    }
+
+    const result = await response.json();
+    if (result.error) throw new Error(result.error);
+    return result;
+  }
+
+  function renderAssessment(a, d) {
+    loadingEl.classList.remove('active');
+    formSection.style.display = 'none';
+
+    document.getElementById('letter-subject').textContent = a.subject_line || `${d.year} ${d.makeModel}`;
+    document.getElementById('figure-range').innerHTML =
+      `${escapeHTML(a.indicative_low)}<span class="sep">–</span>${escapeHTML(a.indicative_high)}`;
+    document.getElementById('figure-note').textContent = a.range_basis || '';
+
+    const body = document.getElementById('letter-body');
+    let bodyHTML = '';
+    bodyHTML += `<p>${formatInline(a.opening_paragraph)}</p>`;
+    bodyHTML += `<p>${formatInline(a.second_paragraph)}</p>`;
+    bodyHTML += `<p>${formatInline(a.third_paragraph)}</p>`;
+
+    bodyHTML += `<div class="lift-hurt">`;
+    bodyHTML += `<div class="lh-col lift"><h5>Would lift the upper end</h5><ul>`;
+    (a.what_lifts || []).forEach(item => { bodyHTML += `<li>${escapeHTML(item)}</li>`; });
+    bodyHTML += `</ul></div>`;
+    bodyHTML += `<div class="lh-col hurt"><h5>Holds back the upper end</h5><ul>`;
+    (a.what_hurts || []).forEach(item => { bodyHTML += `<li>${escapeHTML(item)}</li>`; });
+    bodyHTML += `</ul></div>`;
+    bodyHTML += `</div>`;
+
+    body.innerHTML = bodyHTML;
+    assessmentEl.classList.add('active');
+
+    setTimeout(() => {
+      assessmentEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  function formatInline(text) {
+    let html = escapeHTML(text);
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*([^*]+?)\*/g, '<em>$1</em>');
+    return html;
+  }
+
+  function escapeHTML(str) {
+    if (str == null) return '';
+    const div = document.createElement('div');
+    div.textContent = String(str);
+    return div.innerHTML;
+  }
+
+  ctaSubmit.addEventListener('click', () => {
+    const name = document.getElementById('cta-name').value.trim();
+    const email = document.getElementById('cta-email').value.trim();
+    if (!name || !email || !email.includes('@')) {
+      document.getElementById('cta-name').focus();
+      return;
+    }
+    ctaForm.style.display = 'none';
+    ctaSuccess.classList.add('active');
+    console.log('Lead captured:', { name, email });
+  });
 </script>
-
 </body>
 </html>
